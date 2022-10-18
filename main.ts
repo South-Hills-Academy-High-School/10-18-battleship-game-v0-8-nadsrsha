@@ -31,9 +31,13 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    rotateflag = "nothing"
+    grid.move(mySprite, -1, 0)
     grid.place(shawdowCursor, tiles.getTileLocation(grid.spriteCol(cursor), grid.spriteRow(cursor) + 1))
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+    rotateflag = "nothing"
+    grid.move(mySprite, 1, 0)
     grid.place(shawdowCursor, tiles.getTileLocation(grid.spriteCol(cursor), grid.spriteRow(cursor) + 1))
 })
 function moveBoat (boatArray: any[]) {
@@ -56,6 +60,8 @@ function moveBoat (boatArray: any[]) {
     }
 }
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
+    rotateflag = "nothing"
+    grid.move(mySprite, 0, 0)
     grid.place(shawdowCursor, tiles.getTileLocation(grid.spriteCol(cursor), grid.spriteRow(cursor) + -1))
 })
 function makeBoatInvisible (boatArray: Sprite[]) {
@@ -83,6 +89,8 @@ function isOverlapping () {
     return 0
 }
 let iterator = 0
+let mySprite: Sprite = null
+let rotateflag = ""
 let shawdowCursor: Sprite = null
 let cursor: Sprite = null
 let moveBoatFlag = 0

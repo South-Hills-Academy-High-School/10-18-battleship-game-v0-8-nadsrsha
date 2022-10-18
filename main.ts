@@ -30,6 +30,12 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         grid.place(cursor, tiles.getTileLocation(0, 0))
     }
 })
+controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    grid.place(shawdowCursor, tiles.getTileLocation(grid.spriteCol(cursor), grid.spriteRow(cursor) + 1))
+})
+controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+    grid.place(shawdowCursor, tiles.getTileLocation(grid.spriteCol(cursor), grid.spriteRow(cursor) + 1))
+})
 function moveBoat (boatArray: any[]) {
     makeBoatVisible(boatArray)
     if (grid.spriteRow(cursor) >= 8 - boatArray.length && boatRotateArray[currentBoat] == "up") {
